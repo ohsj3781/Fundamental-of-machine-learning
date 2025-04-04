@@ -5,6 +5,10 @@ import torch.optim as optim
 import numpy as np
 import os
 
+# Enable CUDA if available
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print("Using device:", device)
+
 class OneLayerNet(nn.Module):
     def __init__(self, input_size, output_size):
         super(OneLayerNet, self).__init__()
@@ -19,7 +23,7 @@ os.chdir(os.path.dirname(__file__))
 # Hyperparameters
 input_size=2
 output_size=1
-num_epochs=100000
+num_epochs=100
 learning_rate=0.01
 
 # Get data from data.txt
@@ -32,7 +36,7 @@ y=torch.tensor(y, dtype=torch.float32).unsqueeze(1)
 # Create model
 model = OneLayerNet(input_size, output_size)
 criterion=nn.BCELoss()
-optimizer=optim.SGD(model.parameters(), lr=0.01)
+optimizer=optim.SGD(model.parameters(), lr=learning_rate)
 
 for epoch in range(num_epochs):
     optimizer.zero_grad()
@@ -44,9 +48,8 @@ print("Gradient of w0 :",model.fc.bias.grad[0].item())
 print("Gradient of w1 :",model.fc.weight.grad[0][0].item())
 print("Gradient of w2 :",model.fc.weight.grad[0][1].item())
 
-print("output :",outputs[0].item())
+
 x=torch.tensor([33,81], dtype=torch.float32)
 outputs=model(x)
 
-print(outputs.item())
-
+print("class of [33,81] :",outputs.item()>=0.5 and 1 or 0)
