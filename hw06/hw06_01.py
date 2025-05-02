@@ -55,12 +55,14 @@ def main():
     lst_2=['T','F','F']
     
     # Calculate and print the entropy
-    print("Entropy of lst_0:", calc_entropy(lst_0))
-    print("Entropy of lst_1:", calc_entropy(lst_1))
-    print("Entropy of lst_2:", calc_entropy(lst_2))
+    print(f"Entropy of lst_0 : {calc_entropy(lst_0):.4f}")
+    print(f"Entropy of lst_1 : {calc_entropy(lst_1):.4f}")
+    print(f"Entropy of lst_2 : {calc_entropy(lst_2):.4f}")
 
-    print("Average entropy of lst_1 and lst_2:", calc_avg_entropy(lst_1, lst_2))
+    # Calculate and print the average entropy
+    print(f"Average entropy of lst_1 and lst_2 : {calc_avg_entropy(lst_1, lst_2):.4f}")
 
-    print("Gain of splitting lst_0 into lst_1 and lst_2:", calc_gain(lst_0, lst_1, lst_2))
+    # Calculate and print the information gain
+    print(f"Information gain from splitting lst_0 into lst_1 and lst_2 : {calc_gain(lst_0, lst_1, lst_2):.4f}")
 if __name__ == "__main__":
     main()
