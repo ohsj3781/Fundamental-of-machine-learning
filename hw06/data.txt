@@ -1,0 +1,31 @@
+Entropy of the dataset: 1.0
+Decision Tree:
+{'Wind': {'Weak': {'Outlook': {'Sunny': {'Humidity': {'High': 'No', 'Normal': 'Yes'}}, 'Overcast': 'Yes', 'Rain': 'Yes'}}, 'Strong': {'Outlook': {'Sunny': {'Temp': {'Hot': 'No', 'Mild': 'Yes'}}, 'Rain': 'No', 'Overcast': 'No'}}}}
+{
+    "Wind": {
+        "Weak": {
+            "Outlook": {
+                "Sunny": {
+                    "Humidity": {
+                        "High": "No",
+                        "Normal": "Yes"
+                    }
+                },
+                "Overcast": "Yes",
+                "Rain": "Yes"
+            }
+        },
+        "Strong": {
+            "Outlook": {
+                "Sunny": {
+                    "Temp": {
+                        "Hot": "No",
+                        "Mild": "Yes"
+                    }
+                },
+                "Rain": "No",
+                "Overcast": "No"
+            }
+        }
+    }
+}
